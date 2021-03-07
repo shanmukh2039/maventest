@@ -11,13 +11,13 @@ pipeline {
          }
        
     }
-            stage('Upload War To The Nexus'){
+            stage('Upload Artifacts'){
             steps{
             nexusArtifactUploader artifacts: [
             [
             artifactId: 'junit', 
             classifier: '', 
-            file: 'target/simple-app-3.0.0-SNAPSHOT.war',      type: 'war'
+      file: 'target/simple-app-3.0.0-SNAPSHOT.war',      type: 'war'
            ]
           ], 
           credentialsId: 'nexus2', 
