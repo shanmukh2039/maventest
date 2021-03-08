@@ -22,10 +22,10 @@ pipeline {
           ], 
           credentialsId: 'nexus2', 
           groupId: 'in.javahome', 
-          nexusUrl: '192.168.189.154:8081/', 
+          nexusUrl: '192.168.189.155:8081/', 
           nexusVersion: 'nexus2', 
           protocol: 'http', 
-          repository: 'http://192.168.189.154:8081/repository/maven-test/', 
+          repository: 'http://192.168.189.155:8081/repository/maven-test/', 
           version: '3.0.0-SNAPSHOT'
                  }
          }
