@@ -6,14 +6,14 @@ pipeline {
         stages {
         stage ('Compile Stage') {
                 steps {
-               withEnv("maven : 'MAVEN_HOME") {
+                withMaven(maven : 'MAVEN_HOME') {
                     sh 'mvn clean'
                 }
             }
         }
         stage ('Testing Stage') {
               steps {
-              withEnv("maven : 'MAVEN_HOME") {
+               withMaven(maven : 'MAVEN_HOME') {
                     sh 'mvn test'
                 }
             }
