@@ -1,7 +1,9 @@
 pipeline {
-    agent any
-
-    stages {
+    agent any 
+    tools {
+        maven 'MAVEN_HOME'
+       }
+        stages {
         stage ('Compile Stage') {
 
             steps {
@@ -15,13 +17,6 @@ pipeline {
             steps {
                 withMaven(maven : 'MAVEN_HOME') {
                     sh 'mvn test'
-                }
-            }
-        }
-        stage ('Deployment Stage') {
-            steps {
-                withMaven(maven : 'MAVEN_HOME') {
-                    sh 'mvn deploy'
                 }
             }
         }
