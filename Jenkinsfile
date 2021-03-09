@@ -1,21 +1,18 @@
 pipeline {
-    agent any 
-    tools {
-        maven 'MAVEN_HOME'
-       }
+    agent any
+    def mvnHome 
+    mvnHome = tool 'MAVEN_HOME'
         stages {
         stage ('Compile Stage') {
-
-            steps {
-                withMaven(maven : 'MAVEN_HOME') {
+                steps {
+               withEnv(["MAVEN_HOME=$mvnHome"]) {
                     sh 'mvn clean'
                 }
             }
         }
         stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'MAVEN_HOME') {
+              steps {
+              withEnv(["MAVEN_HOME=$mvnHome"]) {
                     sh 'mvn test'
                 }
             }
